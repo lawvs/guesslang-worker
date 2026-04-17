@@ -28,8 +28,8 @@ importers:
         specifier: ^24.12.2
         version: 24.12.2
       '@vscode/vscode-languagedetection':
-        specifier: github:microsoft/vscode-languagedetection
-        version: git+https://git@github.com:microsoft/vscode-languagedetection.git#4b130f80ed16fb3ccb072fc6bb7a9b2b26ef7a9b
+        specifier: git+https://github.com/microsoft/vscode-languagedetection.git
+        version: https://codeload.github.com/microsoft/vscode-languagedetection/tar.gz/4b130f80ed16fb3ccb072fc6bb7a9b2b26ef7a9b
       prettier:
         specifier: ^3.2.5
         version: 3.8.3
@@ -803,8 +803,8 @@ packages:
   '@vitest/utils@1.6.1':
     resolution: {integrity: sha512-jOrrUvXM4Av9ZWiG1EajNto0u96kWAhJ1LmPmJhXXQx/32MecEKd10pOLYgS2BQx1TgkGhloPU1ArDW2vvaY6g==}
 
-  '@vscode/vscode-languagedetection@git+https://git@github.com:microsoft/vscode-languagedetection.git#4b130f80ed16fb3ccb072fc6bb7a9b2b26ef7a9b':
-    resolution: {commit: 4b130f80ed16fb3ccb072fc6bb7a9b2b26ef7a9b, repo: git@github.com:microsoft/vscode-languagedetection.git, type: git}
+  '@vscode/vscode-languagedetection@https://codeload.github.com/microsoft/vscode-languagedetection/tar.gz/4b130f80ed16fb3ccb072fc6bb7a9b2b26ef7a9b':
+    resolution: {tarball: https://codeload.github.com/microsoft/vscode-languagedetection/tar.gz/4b130f80ed16fb3ccb072fc6bb7a9b2b26ef7a9b}
     version: 1.0.23
     hasBin: true
 
@@ -1830,7 +1830,7 @@ snapshots:
       loupe: 2.3.7
       pretty-format: 29.7.0
 
-  '@vscode/vscode-languagedetection@git+https://git@github.com:microsoft/vscode-languagedetection.git#4b130f80ed16fb3ccb072fc6bb7a9b2b26ef7a9b': {}
+  '@vscode/vscode-languagedetection@https://codeload.github.com/microsoft/vscode-languagedetection/tar.gz/4b130f80ed16fb3ccb072fc6bb7a9b2b26ef7a9b': {}
 
   '@webgpu/types@0.1.16': {}
 
