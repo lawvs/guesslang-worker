@@ -98,27 +98,72 @@ export const playgroundClass = css`
     0 1px 2px -1px rgb(0 0 0 / 0.1);
 `;
 
-export const textareaClass = css`
-  z-index: 1;
-  background-color: transparent;
-  /* color: transparent; */
-  /* opacity: 0.5; */
+export const overlayClass = css`
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    Liberation Mono,
+    Courier New,
+    monospace;
   font-size: 14px;
   line-height: 1.7;
+  letter-spacing: normal;
+  tab-size: 4;
   position: absolute;
-  caret-color: rgb(156 163 175);
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  border: none;
-  outline: none;
   overflow: auto;
-  resize: none;
   white-space: pre;
+
+  & > pre,
+  & > pre > code {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    tab-size: inherit;
+    white-space: pre;
+  }
 
   & > pre {
     background-color: transparent !important;
+  }
+`;
+
+export const textareaClass = css`
+  z-index: 1;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: normal;
+  tab-size: 4;
+  white-space: pre;
+  caret-color: rgb(156 163 175);
+`;
+
+export const highlightClass = css`
+  z-index: 2;
+  pointer-events: none;
+
+  /* Some grammars emit an empty .line, while txt wraps it in an empty span. */
+  & > pre > code > .line:last-child:empty::before,
+  & > pre > code > .line:last-child > span:only-child:empty::before {
+    content: "\\200b";
   }
 `;
 

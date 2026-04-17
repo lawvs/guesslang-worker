@@ -9,6 +9,8 @@ import { Ribbon } from "./ribbon";
 import {
   buttonClass,
   globalClass,
+  highlightClass,
+  overlayClass,
   playgroundClass,
   playgroundHeaderClass,
   taglineClass,
@@ -229,7 +231,7 @@ const Playground = ({
     useState<DetectionResult>(DEFAULT_RESULT);
   const [loading, setLoading] = useState(false);
   const [autoGuess, setAutoGuess] = useState(false);
-  const textareaRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const { html } = useShiki({ code: text, lang: guessResult.languageId });
 
   useEffect(() => {
@@ -237,7 +239,7 @@ const Playground = ({
       throw new Error("No textareaRef found");
     }
     // Set initial text
-    textareaRef.current.textContent = text;
+    textareaRef.current.value = text;
   }, []);
 
   const onGuess = async (options: Partial<DetectionOptions> = {}) => {
@@ -301,29 +303,24 @@ const Playground = ({
           flex: 1;
         `}
       >
-        <div
+        <textarea
           ref={textareaRef}
-          class={textareaClass}
-          style={text && !html ? { color: "black" } : {}}
-          // @ts-expect-error
-          contenteditable="plaintext-only"
+          class={`${overlayClass} ${textareaClass}`}
           autocomplete="off"
           autocorrect="off"
           autocapitalize="off"
+          spellcheck={false}
           onInput={(event) => {
             if (!event.target) {
               throw new Error("No event target found");
             }
-            setText((event.target as HTMLTextAreaElement).textContent ?? "");
+            setText((event.target as HTMLTextAreaElement).value);
           }}
           onScroll={syncScroll}
-        ></div>
+        />
         <span
           id="highlight"
-          class={textareaClass}
-          style={{
-            pointerEvents: "none",
-          }}
+          class={`${overlayClass} ${highlightClass}`}
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
