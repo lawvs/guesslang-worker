@@ -34,7 +34,7 @@ export const Footer = () => {
           </a>
           .
         </p>
-        <p class="copyright">Copyright © 2024 whitewater</p>
+        <p class="copyright">Copyright © 2026 whitewater</p>
       </div>
     </footer>
   );
